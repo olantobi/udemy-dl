@@ -88,7 +88,7 @@ def slugify(
     if not spaces:
         if space_replacement and space_replacement not in ok:
             space_replacement = ok[0] if ok else ""
-        new = re.sub("[%s\s]+" % space_replacement, space_replacement, new)
+        new = re.sub(r"[%s\s]+" % space_replacement, space_replacement, new)
     if lower:
         new = new.lower()
 

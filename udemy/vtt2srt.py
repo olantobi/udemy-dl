@@ -30,7 +30,7 @@ from udemy.compat import os, re  # , codecs
 class WebVtt2Srt(object):
 
     _TIMECODE_REGEX = r"(?i)(?P<appeartime>(?:(?:\d{1,2}:)){1,2}\d{2}[\.,]\d+)"
-    _TIMECODE = r"(?i)(?P<appeartime>(?:(?:\d{1,2}:)){1,2}\d{2}[\.,]\d+)\s*-->\s*(?i)(?P<disappertime>(?:(?:\d{1,2}:)){1,2}\d{2}[\.,]\d+)"
+    _TIMECODE = r"(?i)(?P<appeartime>(?:(?:\d{1,2}:)){1,2}\d{2}[\.,]\d+)\s*-->\s*(?P<disappertime>(?:(?:\d{1,2}:)){1,2}\d{2}[\.,]\d+)"
 
     def _vttcontents(self, fname):
         content = []
