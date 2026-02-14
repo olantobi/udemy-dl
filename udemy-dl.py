@@ -79,6 +79,8 @@ class Udemy(WebVtt2Srt, ProgressBar):
                 except KeyboardInterrupt:
                     logger.error(msg="User Interrupted..", new_line=True)
                     sys.exit(0)
+                except Exception as e:
+                    logger.download_skipped(msg=f"Asset : '{title}' ", reason=str(e))
 
     def download_lecture(self, lecture, filepath, current, total, quality):
         """This function will simply download the lectures.."""
@@ -106,6 +108,8 @@ class Udemy(WebVtt2Srt, ProgressBar):
             except KeyboardInterrupt:
                 logger.error(msg="User Interrupted..", new_line=True)
                 sys.exit(0)
+            except Exception as e:
+                logger.download_skipped(msg=f"Lecture : '{title}' ", reason=str(e))
 
     def download_subtitles(self, subtitles, filepath, language="en", keep_vtt=False):
         """This function will simply download the subtitles.."""
@@ -137,6 +141,8 @@ class Udemy(WebVtt2Srt, ProgressBar):
                 except KeyboardInterrupt:
                     logger.error(msg="User Interrupted..", new_line=True)
                     sys.exit(0)
+                except Exception as e:
+                    logger.download_skipped(msg=f"Subtitle : '{title}' ", reason=str(e))
 
     def course_listdown(
         self,
